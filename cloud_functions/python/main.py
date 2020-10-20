@@ -9,6 +9,12 @@ def cloud_function_python(request):
 
     print("log via print")
 
-    logging.warning('Watch out!')  # will print a message to the console
-    logging.info('I told you so')  # will not print anything
-    return Response("", status=201)
+    logging.debug("logging.debug")
+    logging.info("logging.info")
+
+    logging.warning("logging.warning") 
+    logging.error("logging.error")
+    logging.exception("logging.exception") 
+    logging.critical("logging.critical") 
+ 
+    return Response("cloud_function_python", status=200)
