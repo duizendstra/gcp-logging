@@ -94,11 +94,11 @@ def cloud_function_python(request):
     client.get_default_handler()
     client.setup_logging()
 
-    logging.debug("logging.debug")
-    logging.info("logging.info")
-    logging.warning("logging.warning") 
-    logging.error("logging.error")
-    logging.exception("logging.exception") 
-    logging.critical("logging.critical") 
+    logging.debug("logging.debug client")
+    logging.info("logging.info client")
+    logging.warning("logging.warning client") 
+    logging.error("logging.error client")
+    logging.exception("logging.exception client") 
+    logging.critical("logging.critical client") 
 
     return Response("cloud_function_python", status=200)
