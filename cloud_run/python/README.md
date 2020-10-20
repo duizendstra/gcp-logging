@@ -1,0 +1,1 @@
+gcloud builds submit --tag gcr.io/PROJECT-ID/app_engine_python --projec [PROJECT_ID]
