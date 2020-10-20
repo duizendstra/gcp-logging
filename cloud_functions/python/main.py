@@ -69,6 +69,6 @@ def cloud_function_python(request):
              message='One or more systems are unusable.',
              component='arbitrary-property',
              **global_log_fields)
-     print(json.dumps(entry))
+    print(json.dumps(entry))
 
     return Response("cloud_function_python", status=200)
