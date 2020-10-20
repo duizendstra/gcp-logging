@@ -1,5 +1,6 @@
 import logging
 import sys 
+import json
 from flask import Response
 
 def cloud_function_python(request):
@@ -15,6 +16,22 @@ def cloud_function_python(request):
     logging.error("logging.error")
     logging.exception("logging.exception") 
     logging.critical("logging.critical") 
+
+
+    # Uncomment and populate this variable in your code:
+    PROJECT = 'gcp-log-examples'
+
+    # Build structured log messages as an object.
+    global_log_fields = {}
+
+    # Add log correlation to nest all log messages
+    # beneath request log in Log Viewer.
+    trace_header = request.headers.get('X-Cloud-Trace-Context')
+
+    if trace_header and PROJECT:
+        trace = trace_header.split('/')
+        global_log_fields['logging.googleapis.com/trace'] = (
+        f"projects/{PROJECT}/traces/{trace[0]}")
 
 
     entry = dict(severity='DEFAULT',
